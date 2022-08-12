@@ -1061,6 +1061,8 @@ func (gp *GoPdf) MultiCell(rectangle *Rect, text string) error {
 	if err != nil {
 		return err
 	}
+	gp.PointsToUnitsVar(&lineHeight)
+	lineHeight += 0.07
 
 	for i, v := range []rune(text) {
 		if totalLineHeight+lineHeight > rectangle.H {
